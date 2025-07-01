@@ -6,8 +6,9 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import timm
 import os
+import serial
 import cv2 as cv
-
+import time
 vid = cv.VideoCapture(0)
 
 for i in range(3):
@@ -20,7 +21,7 @@ imgPath = r"C:/Users/aarav/OneDrive/Desktop/文档/Hackspire/opencv1.jpg"
 # Loading model and all tht stufffff
 MODEL_PATH = r"C:/Users/aarav/OneDrive/Desktop/文档/Hackspire/KachraBhai/tp.pt"
 DATASET_PATH = r"C:/Users/aarav/OneDrive/Desktop/文档/Hackspire/KachraBhai/train/dataset-resized"
-IMAGE_PATH = (imgPath)  
+IMAGE_PATH = (imgPath) 
 IMAGE_SIZE = (128, 128)
 
 
@@ -78,7 +79,7 @@ def show_prediction(image_path, model, transform, class_names, device):
 
     plt.imshow(image)
     plt.axis('off')
-    plt.title(f"Predicted: {pred}", fontsize=16)
+    plt.title(f"The Waste is: {pred}", fontsize=16)
     plt.show()
     return pred
 
@@ -88,3 +89,7 @@ if os.path.exists(IMAGE_PATH):
     print(f" Predicted class: {prediction}")
 else:
     print(f" Image not found: {IMAGE_PATH}")
+
+
+
+
